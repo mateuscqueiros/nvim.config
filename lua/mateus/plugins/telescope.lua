@@ -36,25 +36,17 @@ return {
       vim.api.nvim_set_hl(0, hl, col)
     end
 
-    vim.keymap.set(
-      "n",
-      "<leader>ff",
-      function() builtin.fd(commands.no_preview()) end
-    )
-    vim.keymap.set(
-      "n",
-      "<leader>fg",
-      function() builtin.live_grep(commands.no_preview()) end
-    )
-    vim.keymap.set(
-      "n",
-      "<leader>fb",
-      function() builtin.buffers(commands.no_preview()) end
-    )
-    vim.keymap.set(
-      "n",
-      "<leader>fh",
-      function() builtin.help_tags(commands.no_preview()) end
-    )
+    vim.keymap.set("n", "<leader>ff", function()
+      builtin.fd(commands.no_preview())
+    end)
+    vim.keymap.set("n", "<leader>fg", function()
+      builtin.live_grep(commands.no_preview())
+    end)
+    vim.keymap.set("n", "<leader>fb", function()
+      builtin.buffers(commands.no_preview())
+    end)
+    vim.keymap.set("n", "<leader>fh", function()
+      builtin.help_tags(commands.no_preview())
+    end)
   end,
 }

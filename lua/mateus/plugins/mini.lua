@@ -25,7 +25,9 @@ return {
         { desc = "Open parent directory" }
       )
 
-      vim.keymap.set("n", "<leader>o", function() mini.open() end)
+      vim.keymap.set("n", "<leader>o", function()
+        mini.open()
+      end)
     end,
   },
 }

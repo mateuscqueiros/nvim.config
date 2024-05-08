@@ -3,7 +3,9 @@ local M = {
   enabled = false,
   tag = "v7.0.0",
   ft = "norg",
-  config = function() vim.keymap.set("n", "<leader>ji", "<cmd>Neorg<CR>") end,
+  config = function()
+    vim.keymap.set("n", "<leader>ji", "<cmd>Neorg<CR>")
+  end,
   dependencies = {
     "nvim-treesitter/nvim-treesitter",
     "nvim-treesitter/nvim-treesitter-textobjects",

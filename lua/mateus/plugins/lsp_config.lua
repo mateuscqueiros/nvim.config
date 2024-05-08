@@ -1,35 +1,29 @@
 return {
   {
-    "hrsh7th/cmp-nvim-lsp",
-    event = "VeryLazy",
-  },
-  {
-    "j-hui/fidget.nvim",
-    event = "VeryLazy",
-  },
-  {
     "williamboman/mason.nvim",
-    lazy = false,
+    event = { "BufReadPost", "BufNewFile" },
     opts = {},
   },
   {
     "williamboman/mason-lspconfig.nvim",
     event = { "BufReadPost", "BufNewFile" },
-    config = function()
-      require("mason-lspconfig").setup({
-        automatic_installation = true,
-        ensure_installed = {
-          "lua_ls",
-          "tsserver",
-          "html",
-          "cssls",
-          "gopls",
-          "tailwindcss",
-          "somesass_ls",
-          "pyright",
-        },
-      })
-    end,
+    dependencies = {
+      "j-hui/fidget.nvim",
+      "williamboman/mason.nvim",
+    },
+    opts = {
+      automatic_installation = true,
+      ensure_installed = {
+        "lua_ls",
+        "tsserver",
+        "html",
+        "cssls",
+        "gopls",
+        "tailwindcss",
+        "somesass_ls",
+        "pyright",
+      },
+    },
   },
   {
     "neovim/nvim-lspconfig",
@@ -38,6 +32,8 @@ return {
     dependencies = {
       "j-hui/fidget.nvim",
       "hrsh7th/cmp-nvim-lsp",
+      "williamboman/mason.nvim",
+      "williamboman/mason-lspconfig.nvim",
     },
     config = function()
       local lsp_config = require("lspconfig")

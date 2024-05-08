@@ -1,24 +1,13 @@
 return {
   {
-    "onsails/lspkind.nvim",
-    event = "VeryLazy",
-  },
-  {
-    "saadparwaiz1/cmp_luasnip",
-    event = "VeryLazy",
-  },
-  {
-    "L3MON4D3/LuaSnip",
-    dependencies = {
-      "rafamadriz/friendly-snippets",
-    },
-  },
-  {
     "hrsh7th/nvim-cmp",
     event = { "BufReadPost", "BufNewFile" },
     dependencies = {
       "onsails/lspkind.nvim",
       "saadparwaiz1/cmp_luasnip",
+      "L3MON4D3/LuaSnip",
+      "onsails/lspkind.nvim",
+      "hrsh7th/cmp-nvim-lsp",
     },
     config = function()
       local cmp = require("cmp")
@@ -45,7 +34,9 @@ return {
         },
         mapping = cmp.mapping.preset.insert(keymaps),
         snippet = {
-          expand = function(args) require("luasnip").lsp_expand(args.body) end,
+          expand = function(args)
+            require("luasnip").lsp_expand(args.body)
+          end,
         },
         sources = cmp.config.sources({
           { name = "nvim_lsp" },

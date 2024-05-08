@@ -1,6 +1,10 @@
 return {
   "stevearc/conform.nvim",
   event = { "BufReadPost", "BufNewFile" },
+  dependencies = {
+    "williamboman/mason.nvim",
+    "williamboman/mason-lspconfig.nvim",
+  },
   config = function()
     local conform = require("conform")
 
