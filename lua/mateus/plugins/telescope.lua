@@ -11,6 +11,12 @@ return {
     telescope.setup({
       defaults = {
         path_display = { "smart" },
+        file_ignore_patterns = {
+          "node%_modules/.*",
+          "lazy%-lock.json",
+          "package%-lock.json",
+          ".git/.*",
+        },
       },
       pickers = {
         find_files = {
