@@ -7,6 +7,7 @@ return {
   },
   config = function()
     local conform = require("conform")
+    local organize_imports = require("mateus.commands").organize_imports
 
     conform.setup({
       formatters_by_ft = {
@@ -23,14 +24,16 @@ return {
       },
     })
 
+    vim.keymap.set("n", "<leader>fp", function()
+      organize_imports()
+    end)
+
     vim.api.nvim_create_autocmd("BufWritePre", {
       pattern = "*",
       callback = function(args)
-        local organizeImports = require("mateus.commands").organize_imports
-
         conform.format({ bufnr = args.buf })
 
-        organizeImports()
+        organize_imports()
       end,
     })
   end,

@@ -4,8 +4,8 @@ return {
     version = "*",
     lazy = false,
     config = function()
-      local mini = require("mini.files")
-      mini.setup({
+      local MiniFiles = require("mini.files")
+      MiniFiles.setup({
         options = {
           permanent_delete = false,
         },
@@ -18,15 +18,8 @@ return {
         },
       })
 
-      vim.keymap.set(
-        "n",
-        "-",
-        "<CMD>Oil<CR>",
-        { desc = "Open parent directory" }
-      )
-
       vim.keymap.set("n", "<leader>o", function()
-        mini.open()
+        MiniFiles.open()
       end)
     end,
   },

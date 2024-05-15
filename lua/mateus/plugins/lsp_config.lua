@@ -44,8 +44,9 @@ return {
         local buf = vim.lsp.buf
         vim.keymap.set("n", "<leader>rn", buf.rename, {})
         vim.keymap.set("n", "<leader>ca", buf.code_action, {})
-        vim.vim.keymap.set("n", "gd", buf.definition, {})
+        vim.keymap.set("n", "gd", buf.definition, {})
         vim.keymap.set("n", "gi", buf.implementation, {})
+        vim.keymap.set("n", "<leader>spr", "<cmd>LspRestart<CR>", {})
         vim.keymap.set(
           "n",
           "gr",

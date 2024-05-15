@@ -1,13 +1,17 @@
 local M = {}
 
 M.organize_imports = function()
-  if vim.bo.filetype == "ts" or vim.bo.filetype == "tsx" then
+  if
+    vim.bo.filetype == "typescriptreact"
+    or vim.bo.filetype == "javascriptreact"
+  then
     local params = {
       command = "_typescript.organizeImports",
       arguments = { vim.api.nvim_buf_get_name(0) },
       title = "Organize Imports",
     }
     vim.lsp.buf.execute_command(params)
+    vim.print("Fix imports")
   end
 end
 

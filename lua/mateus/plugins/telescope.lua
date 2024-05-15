@@ -5,6 +5,7 @@ return {
   dependencies = { "nvim-lua/plenary.nvim" },
   config = function()
     local telescope = require("telescope")
+    local actions = require("telescope.actions")
     local builtin = require("telescope.builtin")
     local commands = require("mateus.commands")
 
@@ -17,8 +18,20 @@ return {
           "package%-lock.json",
           ".git/.*",
         },
+        mappings = {
+          i = {
+            ["<C-j>"] = actions.cycle_history_prev,
+            ["<C-k>"] = actions.cycle_history_next,
+          },
+        },
       },
       pickers = {
+        defaults = {
+          cache_picker = {
+            num_pickers = 4,
+            limit_entries = 20,
+          },
+        },
         find_files = {
           hidden = true,
         },
@@ -35,6 +48,10 @@ return {
     for hl, col in pairs(TelescopeColor) do
       vim.api.nvim_set_hl(0, hl, col)
     end
+
+    vim.keymap.set("n", "<leader>fr", function()
+      builtin.resume()
+    end)
 
     vim.keymap.set("n", "<leader>ff", function()
       builtin.fd(commands.no_preview())
