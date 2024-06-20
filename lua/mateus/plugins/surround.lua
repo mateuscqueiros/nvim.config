@@ -17,7 +17,7 @@ return {
           underline = true,
           virtual_text = {
             spacing = 5,
-            severity_limit = "Warning",
+            severity = vim.diagnostic.severity.WARN,
           },
           update_in_insert = true,
         })

@@ -15,6 +15,20 @@ M.organize_imports = function()
   end
 end
 
+M.merge = function(...)
+  local result = {}
+  for _, t in ipairs({ ... }) do
+    for k, v in pairs(t) do
+      result[k] = v
+    end
+    local mt = getmetatable(t)
+    if mt then
+      setmetatable(result, mt)
+    end
+  end
+  return result
+end
+
 M.no_preview = function()
   return require("telescope.themes").get_dropdown({
     hidden = true,
@@ -28,6 +42,10 @@ M.no_preview = function()
     previewer = false,
     prompt_title = false,
   })
+end
+
+M.colorscheme = function()
+  return { enable_preview = true }
 end
 
 return M

@@ -65,5 +65,10 @@ return {
     vim.keymap.set("n", "<leader>fh", function()
       builtin.help_tags(commands.no_preview())
     end)
+    vim.keymap.set("n", "<leader>fc", function()
+      builtin.colorscheme({
+        enable_preview = true,
+      })
+    end)
   end,
 }

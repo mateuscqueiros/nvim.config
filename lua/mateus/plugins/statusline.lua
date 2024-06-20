@@ -1,14 +1,10 @@
 return {
-  -- { "vimpostor/vim-tpipeline" },
   {
     "nvim-lualine/lualine.nvim",
     event = "VeryLazy",
     opts = {
       sections = {
         lualine_c = {
-          -- {
-          --   "harpoon2",
-          -- },
           {
             "filename",
             file_status = true,
