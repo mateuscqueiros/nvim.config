@@ -8,11 +8,16 @@ return {
 
     lualine.setup({
       sections = {
-        lualine_a = {},
+        lualine_a = { "branch", "diff", "diagnostics" },
         lualine_b = {},
-        lualine_c = { "filename" },
+        lualine_c = {
+          "%=",
+          {
+            "filename",
+          },
+        },
         lualine_x = {},
-        lualine_y = { "branch", "diff", "diagnostics" },
+        lualine_y = { "diagnostics", "searchcount" },
       },
       options = {
         theme = {

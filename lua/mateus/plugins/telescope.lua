@@ -27,6 +27,7 @@ return {
       },
       pickers = {
         defaults = {
+          enable_preview = true,
           cache_picker = {
             num_pickers = 4,
             limit_entries = 20,

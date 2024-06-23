@@ -17,6 +17,7 @@ return {
         event = "VeryLazy",
         opts = {
           style = "night",
+          transparent = true,
         },
       },
       {
