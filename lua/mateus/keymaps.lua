@@ -46,5 +46,5 @@ keymap.set("n", "<C-w><up>", "<C-w>+")
 keymap.set("n", "<C-w><down>", "<C-w>-")
 
 -- Utils
-keymap.set("n", "<leader>h", ":nohlsearch<CR>")
+keymap.set("n", "<leader>h", ":nohlsearch<CR>", opts)
 keymap.set("n", "J", "mzJ`z")

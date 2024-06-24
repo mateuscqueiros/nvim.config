@@ -34,7 +34,16 @@ return {
       { "rebelot/kanagawa.nvim" },
       { "ellisonleao/gruvbox.nvim" },
       { "Alexis12119/nightly.nvim" },
-      { "rose-pine/neovim" },
+      {
+        "rose-pine/neovim",
+        config = function()
+          require("rose-pine").setup({
+            styles = {
+              transparency = true,
+            },
+          })
+        end,
+      },
       { "catppuccin/nvim" },
       { "Shatur/neovim-ayu" },
     },

@@ -30,5 +30,13 @@ vim.opt.updatetime = 50
 
 vim.g.terminal_emulator = "tmux"
 vim.opt.fillchars = {
-  vert = " "
+  vert = " ",
 }
+
+vim.api.nvim_create_autocmd("CmdlineLeave", {
+  callback = function()
+    vim.fn.timer_start(5000, function()
+      vim.cmd('echom ""')
+    end)
+  end,
+})
