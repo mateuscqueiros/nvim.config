@@ -18,7 +18,7 @@ return {
         "tsserver",
         "html",
         "cssls",
-        "gopls",
+        -- "gopls",
         "tailwindcss",
         "somesass_ls",
         "pyright",
@@ -90,10 +90,10 @@ return {
         },
       })
 
-      lsp_config.gopls.setup({
-        on_attach = on_attach,
-        capabilities = capabilities,
-      })
+      -- lsp_config.gopls.setup({
+      --   on_attach = on_attach,
+      --   capabilities = capabilities,
+      -- })
 
       lsp_config.tsserver.setup({
         on_attach = on_attach,
