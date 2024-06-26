@@ -5,10 +5,9 @@ return {
       colorscheme = "default",
     },
   },
-
   {
     "https://git.sr.ht/~swaits/colorsaver.nvim",
-    event = "VimEnter",
+    event = "VeryLazy",
     opts = {},
     dependencies = {
       {
@@ -28,12 +27,6 @@ return {
           transparent = false,
         },
       },
-      { "AlexvZyl/nordic.nvim" },
-      { "EdenEast/nightfox.nvim" },
-      { "Shatur/neovim-ayu" },
-      { "rebelot/kanagawa.nvim" },
-      { "ellisonleao/gruvbox.nvim" },
-      { "Alexis12119/nightly.nvim" },
       {
         "rose-pine/neovim",
         config = function()
@@ -44,8 +37,23 @@ return {
           })
         end,
       },
+      { "AlexvZyl/nordic.nvim" },
+      { "EdenEast/nightfox.nvim" },
+      { "Shatur/neovim-ayu" },
+      { "rebelot/kanagawa.nvim" },
+      { "ellisonleao/gruvbox.nvim" },
+      { "Alexis12119/nightly.nvim" },
       { "catppuccin/nvim" },
       { "Shatur/neovim-ayu" },
+      {
+        "nyoom-engineering/oxocarbon.nvim",
+        event = "VeryLazy",
+        config = function()
+          vim.cmd("colorscheme oxocarbon")
+          vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
+          vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" })
+        end,
+      },
     },
   },
 }

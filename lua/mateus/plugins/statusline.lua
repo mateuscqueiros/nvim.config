@@ -8,7 +8,7 @@ return {
 
     lualine.setup({
       sections = {
-        lualine_a = { "branch", "diff", "diagnostics" },
+        lualine_a = { "branch", "diff" },
         lualine_b = {},
         lualine_c = {
           "%=",
