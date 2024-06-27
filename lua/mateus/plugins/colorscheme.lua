@@ -7,7 +7,7 @@ return {
   },
   {
     "https://git.sr.ht/~swaits/colorsaver.nvim",
-    event = "VeryLazy",
+    event = "VimEnter",
     opts = {},
     dependencies = {
       {
