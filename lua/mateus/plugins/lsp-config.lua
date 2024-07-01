@@ -57,6 +57,12 @@ return {
           require("telescope.builtin").lsp_references,
           {}
         )
+        vim.keymap.set(
+          "n",
+          "gr",
+          require("telescope.builtin").lsp_references,
+          {}
+        )
         vim.keymap.set("n", "K", buf.hover, {})
       end
 
