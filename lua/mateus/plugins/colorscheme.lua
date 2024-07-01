@@ -2,7 +2,7 @@ return {
   {
     "LazyVim/LazyVim",
     opts = {
-      colorscheme = "default",
+      colorscheme = "rose-pine",
     },
   },
   {
@@ -45,15 +45,7 @@ return {
       { "Alexis12119/nightly.nvim" },
       { "catppuccin/nvim" },
       { "Shatur/neovim-ayu" },
-      {
-        "nyoom-engineering/oxocarbon.nvim",
-        event = "VeryLazy",
-        config = function()
-          vim.cmd("colorscheme oxocarbon")
-          vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
-          vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" })
-        end,
-      },
+      { "nyoom-engineering/oxocarbon.nvim" },
     },
   },
 }

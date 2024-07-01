@@ -13,6 +13,8 @@ return {
       "javascript",
       "html",
       "ruby",
+      "markdown",
+      "mardown_inline",
     },
     auto_install = true,
     modules = {},

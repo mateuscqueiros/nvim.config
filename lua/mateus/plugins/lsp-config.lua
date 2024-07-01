@@ -22,6 +22,7 @@ return {
         "tailwindcss",
         "somesass_ls",
         "pyright",
+        "clangd",
       },
     },
   },
@@ -46,7 +47,10 @@ return {
         vim.keymap.set("n", "<leader>ca", buf.code_action, {})
         vim.keymap.set("n", "gd", buf.definition, {})
         vim.keymap.set("n", "gi", buf.implementation, {})
-        vim.keymap.set("n", "<leader>spr", "<cmd>LspRestart<CR>", {})
+        vim.keymap.set("n", "<leader>rs", function()
+          print(vim.inspect(vim.lsp.get_active_clients()))
+          vim.cmd("LspRestart")
+        end, {})
         vim.keymap.set(
           "n",
           "gr",
@@ -147,6 +151,11 @@ return {
       })
 
       lsp_config.pyright.setup({
+        on_attach = on_attach,
+        capabilities = capabilities,
+      })
+
+      lsp_config.clangd.setup({
         on_attach = on_attach,
         capabilities = capabilities,
       })
