@@ -14,6 +14,7 @@ return {
           "%=",
           {
             "filename",
+            path = 4,
           },
         },
         lualine_x = {},

@@ -47,7 +47,7 @@ return {
         vim.keymap.set("n", "<leader>ca", buf.code_action, {})
         vim.keymap.set("n", "gd", buf.definition, {})
         vim.keymap.set("n", "gi", buf.implementation, {})
-        vim.keymap.set("n", "<leader>rs", function()
+        vim.keymap.set("n", "<leader>lsp", function()
           print(vim.inspect(vim.lsp.get_active_clients()))
           vim.cmd("LspRestart")
         end, {})
