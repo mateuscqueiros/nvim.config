@@ -28,8 +28,8 @@ return {
         ---@diagnostic disable-next-line: missing-fields
         performance = {
           max_view_entries = 14,
-          trigger_debounce_time = 500,
-          throttle = 550,
+          -- trigger_debounce_time = 500,
+          -- throttle = 550,
           fetching_timeout = 30,
         },
         mapping = cmp.mapping.preset.insert(keymaps),

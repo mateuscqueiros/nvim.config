@@ -15,7 +15,7 @@ return {
       automatic_installation = true,
       ensure_installed = {
         "lua_ls",
-        "tsserver",
+        "ts_ls",
         "html",
         "cssls",
         -- "gopls",
@@ -105,7 +105,7 @@ return {
       --   capabilities = capabilities,
       -- })
 
-      lsp_config.tsserver.setup({
+      lsp_config.ts_ls.setup({
         on_attach = on_attach,
         capabilities = capabilities,
         commands = {
