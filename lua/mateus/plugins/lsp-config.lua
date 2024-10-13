@@ -41,7 +41,8 @@ return {
 
       local organize_imports = require("mateus.commands").organize_imports
       local capabilities = require("cmp_nvim_lsp").default_capabilities()
-      local on_attach = function()
+      local on_attach = function(client)
+        -- client.server_capabilities.semanticTokensProvider = nil
         local buf = vim.lsp.buf
         vim.keymap.set("n", "<leader>rn", buf.rename, {})
         vim.keymap.set("n", "<leader>ca", buf.code_action, {})

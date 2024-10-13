@@ -48,7 +48,9 @@ keymap.set("n", "<C-w><down>", "<C-w>-")
 -- Utils
 keymap.set("n", "<leader>h", ":nohlsearch<CR>", opts)
 keymap.set("n", "J", "mzJ`z")
+keymap.set("n", "q", "<cmd>cclose<CR>", {})
 
 -- LSP
-vim.keymap.set("n", "<leader>m", "<cmd>Mason<CR>", {})
-vim.keymap.set("n", "<leader>l", "<cmd>Lazy<CR>", {})
+keymap.set("n", "<leader>m", "<cmd>Mason<CR>", {})
+keymap.set("n", "<leader>ll", "<cmd>Lazy<CR>", {})
+keymap.set("n", "<leader>cc", "<cmd>Conform<CR>", {})
