@@ -19,7 +19,8 @@ return {
       })
 
       vim.keymap.set("n", "<leader>o", function()
-        MiniFiles.open()
+        MiniFiles.open(vim.api.nvim_buf_get_name(0), false)
+        MiniFiles.reveal_cwd()
       end)
     end,
   },
