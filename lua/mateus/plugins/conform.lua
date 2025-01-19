@@ -11,7 +11,7 @@ return {
 
     conform.setup({
       formatters_by_ft = {
-        lua = { "stylua" },
+        lua = { "lua_ls" },
         javascript = { "prettierd" },
         javascriptreact = { "prettierd" },
         typescriptreact = { "prettierd" },
@@ -23,9 +23,7 @@ return {
       },
     })
 
-    vim.keymap.set("n", "<leader>fp", function()
-      organize_imports()
-    end)
+    vim.keymap.set("n", "<leader>fp", organize_imports)
 
     vim.api.nvim_create_autocmd("BufWritePre", {
       pattern = "*",
