@@ -55,7 +55,7 @@ return {
     end)
 
     vim.keymap.set("n", "<leader>ff", function()
-      builtin.fd(commands.no_preview())
+      builtin.fd()
     end)
     vim.keymap.set("n", "<leader>fg", function()
       builtin.live_grep(commands.no_preview())
