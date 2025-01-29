@@ -1,4 +1,5 @@
 return {
+  --[[
   {
     "sindrets/diffview.nvim",
     config = function()
@@ -18,4 +19,20 @@ return {
       vim.keymap.set("n", "<leader>gp", "<cmd>Git<CR>")
     end,
   },
+  ]] --
+  {
+    'tanvirtin/vgit.nvim',
+    branch = 'v1.0.x',
+    dependencies = { 'nvim-lua/plenary.nvim', 'nvim-tree/nvim-web-devicons' },
+    event = 'VimEnter',
+    config = function()
+      require("vgit").setup({
+        settings = {
+          live_blame = {
+            enabled = false,
+          },
+        }
+      })
+    end,
+  }
 }
