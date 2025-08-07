@@ -105,10 +105,10 @@ return {
         on_attach = on_attach,
         capabilities = capabilities,
         commands = {
-          FixImp = {
-            organize_imports,
-            description = "Organize imports",
-          },
+          -- FixImp = {
+          --   organize_imports,
+          --   description = "Organize imports",
+          -- },
         },
       })
 
@@ -116,7 +116,6 @@ return {
         on_attach = on_attach,
         capabilities = capabilities,
       })
-
       lsp_config.cssls.setup({
         settings = {
           css = {

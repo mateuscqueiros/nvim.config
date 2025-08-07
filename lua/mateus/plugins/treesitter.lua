@@ -6,6 +6,7 @@ return {
       "c",
       "lua",
       "vim",
+      "vue",
       "vimdoc",
       "query",
       "elixir",

@@ -33,6 +33,10 @@ vim.opt.fillchars = {
   vert = " ",
 }
 
+vim.diagnostic.config({
+  virtual_lines = true
+})
+
 vim.api.nvim_create_autocmd("CmdlineLeave", {
   callback = function()
     vim.fn.timer_start(5000, function()

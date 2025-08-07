@@ -30,8 +30,8 @@ keymap.set("n", "+", "<C-a>")
 keymap.set("n", "-", "<C-x>")
 
 -- Split window
--- keymap.set("n", "ss", ":split<Return>", opts)
--- keymap.set("n", "sv", ":vsplit<Return>", opts)
+keymap.set("n", "ss", ":split<Return>", opts)
+keymap.set("n", "sv", ":vsplit<Return>", opts)
 
 -- Move window
 -- keymap.set("n", "sh", "<C-w>h")
@@ -49,6 +49,7 @@ keymap.set("n", "<C-w><down>", "<C-w>-")
 keymap.set("n", "<leader>h", ":nohlsearch<CR>", opts)
 keymap.set("n", "J", "mzJ`z")
 keymap.set("n", "q", "<cmd>cclose<CR>", {})
+keymap.set("n", "mq", "q", {})
 
 -- LSP
 keymap.set("n", "<leader>m", "<cmd>Mason<CR>", {})

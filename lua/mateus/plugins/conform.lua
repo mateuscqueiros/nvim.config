@@ -11,14 +11,17 @@ return {
 
     conform.setup({
       formatters_by_ft = {
+        vue = { "prettier" },
         lua = { "lua_ls" },
-        javascript = { "prettierd" },
-        javascriptreact = { "prettierd" },
-        typescriptreact = { "prettierd" },
+        javascript = { "prettierd", "prettier", stop_after_first = true },
+        javascriptreact = { "prettierd", "prettier", stop_after_first = true },
+        typescriptreact = { "prettierd", "prettier", stop_after_first = true },
         html = { "prettierd" },
         css = { "prettierd" },
+        json = { "prettierd" },
       },
       format_on_save = {
+        timeout_ms = 200,
         lsp_fallback = true,
       },
     })
@@ -29,8 +32,6 @@ return {
       pattern = "*",
       callback = function(args)
         conform.format({ bufnr = args.buf })
-
-        organize_imports()
       end,
     })
   end,

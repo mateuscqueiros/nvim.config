@@ -58,7 +58,10 @@ return {
       builtin.fd()
     end)
     vim.keymap.set("n", "<leader>fg", function()
-      builtin.live_grep(commands.no_preview())
+      local conf = require("telescope.config").values
+      builtin.live_grep({
+        vimgrep_arguments = table.insert(conf.vimgrep_arguments, "--fixed-strings")
+      })
     end)
     vim.keymap.set("n", "<leader>fb", function()
       builtin.buffers(commands.no_preview())
