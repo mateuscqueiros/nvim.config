@@ -1,6 +1,6 @@
 return {
   "nvim-telescope/telescope.nvim",
-  tag = "0.1.5",
+  tag = "0.1.8",
   event = { "BufReadPost", "BufNewFile" },
   dependencies = { "nvim-lua/plenary.nvim" },
   config = function()
@@ -11,7 +11,11 @@ return {
 
     telescope.setup({
       defaults = {
-        path_display = { "smart" },
+        vimgrep_arguments = {
+          "rg", "--color=never", "--no-heading", "--with-filename",
+          "--line-number", "--column", "--smart-case", "--max-filesize", "1M",
+        },
+        path_display = { "truncate" },
         file_ignore_patterns = {
           "node%_modules/.*",
           "lazy%-lock.json",
@@ -58,9 +62,10 @@ return {
       builtin.fd()
     end)
     vim.keymap.set("n", "<leader>fg", function()
-      local conf = require("telescope.config").values
       builtin.live_grep({
-        vimgrep_arguments = table.insert(conf.vimgrep_arguments, "--fixed-strings")
+        additional_args = function()
+          return { "--fixed-strings" }
+        end,
       })
     end)
     vim.keymap.set("n", "<leader>fb", function()

@@ -4,7 +4,7 @@ return {
   dependencies = { "nvim-tree/nvim-web-devicons" },
   config = function()
     local lualine = require("lualine")
-    local default_theme = { fg = "#ebbcba", bg = "None" }
+    local default_theme = { fg = "NONE", bg = "NONE" }
 
     lualine.setup({
       sections = {
@@ -42,6 +42,11 @@ return {
         section_separators = "",
       },
     })
+
+    vim.cmd([[
+      hi StatusLine guibg=NONE ctermbg=NONE
+      hi StatusLineNC guibg=NONE ctermbg=NONE
+    ]])
 
     vim.opt.fillchars = {
       stl = "─",

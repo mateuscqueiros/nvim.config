@@ -5,7 +5,7 @@ return {
   {
     "LazyVim/LazyVim",
     opts = {
-      colorscheme = "rose-pine", -- just some random built-in scheme
+      colorscheme = "rose-pine",
     },
   },
 
@@ -36,7 +36,14 @@ return {
       { "EdenEast/nightfox.nvim" },
       { "Shatur/neovim-ayu" },
       { "rebelot/kanagawa.nvim" },
-      { "ellisonleao/gruvbox.nvim" },
+      {
+        "ellisonleao/gruvbox.nvim",
+        config = function()
+          require("gruvbox").setup({
+            transparent_mode = true,
+          })
+        end
+      },
       { "Alexis12119/nightly.nvim" },
       {
         "rose-pine/neovim",

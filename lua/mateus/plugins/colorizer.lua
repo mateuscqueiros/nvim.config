@@ -18,4 +18,3 @@ return {
     vim.cmd("ColorizerAttachToBuffer")
   end,
 }
-

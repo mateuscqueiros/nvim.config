@@ -7,41 +7,39 @@ return {
   {
     "williamboman/mason-lspconfig.nvim",
     event = { "BufReadPost", "BufNewFile" },
-    dependencies = {
-      "j-hui/fidget.nvim",
-      "williamboman/mason.nvim",
-    },
-    opts = {
-      automatic_installation = true,
-      ensure_installed = {
-        "lua_ls",
-        "ts_ls",
-        "html",
-        "cssls",
-        -- "gopls",
-        "tailwindcss",
-        "somesass_ls",
-        "pyright",
-        "clangd",
-      },
-    },
+    dependencies = { "williamboman/mason.nvim" },
+    config = function()
+      require("mason").setup()
+      require("mason-lspconfig").setup({
+        ensure_installed = {
+          "lua_ls",
+          "ts_ls",
+          "html",
+          "cssls",
+          "tailwindcss",
+          "somesass_ls",
+          "pyright",
+          "clangd",
+        },
+        automatic_installation = { exclude = {}, },
+      })
+    end,
   },
   {
     "neovim/nvim-lspconfig",
     event = { "BufReadPost", "BufNewFile" },
     cmd = { "LspInfo", "LspInstall", "LspUninstall", "LspRestart" },
     dependencies = {
-      "j-hui/fidget.nvim",
-      "hrsh7th/cmp-nvim-lsp",
+      'saghen/blink.cmp',
       "williamboman/mason.nvim",
       "williamboman/mason-lspconfig.nvim",
     },
     config = function()
       local lsp_config = require("lspconfig")
 
-      local organize_imports = require("mateus.commands").organize_imports
-      local capabilities = require("cmp_nvim_lsp").default_capabilities()
-      local on_attach = function(client)
+      -- local organize_imports = require("mateus.commands").organize_imports
+      local capabilities = vim.tbl_deep_extend('force', require('blink.cmp').get_lsp_capabilities(), {})
+      local on_attach = function()
         -- client.server_capabilities.semanticTokensProvider = nil
         local buf = vim.lsp.buf
         vim.keymap.set("n", "<leader>rn", buf.rename, {})
@@ -67,31 +65,30 @@ return {
         vim.keymap.set("n", "K", buf.hover, {})
       end
 
-      -- Signs
-      vim.fn.sign_define(
-        "DiagnosticSignError",
-        { text = "", texthl = "DiagnosticSignError" }
-      )
-      vim.fn.sign_define(
-        "DiagnosticSignWarn",
-        { text = "", texthl = "DiagnosticSignWarn" }
-      )
-      vim.fn.sign_define(
-        "DiagnosticSignInfo",
-        { text = "", texthl = "DiagnosticSignInfo" }
-      )
-      vim.fn.sign_define(
-        "DiagnosticSignHint",
-        { text = "", texthl = "DiagnosticSignHint" }
-      )
-      -- LSPs setup
+      vim.diagnostic.config({
+        signs = {
+          text = {
+            [vim.diagnostic.severity.ERROR] = "",
+            [vim.diagnostic.severity.WARN] = "",
+            [vim.diagnostic.severity.INFO] = "󰋼",
+            [vim.diagnostic.severity.HINT] = "󰌵",
+          },
+        }
+      })
+
       lsp_config.lua_ls.setup({
         on_attach = on_attach,
         capabilities = capabilities,
         settings = {
           Lua = {
-            diagnostics = { globals = { "vim" }, },
-            completion = { callSnipet = "Replace", },
+            diagnostics = { globals = { "vim" } },
+            runtime = { version = "LuaJIT" },
+            workspace = {
+              library = vim.api.nvim_get_runtime_file("", true),
+              checkThirdParty = false,
+            },
+            completion = { callSnipet = "Replace" },
+            telemetry = { enable = false }
           },
         },
       })

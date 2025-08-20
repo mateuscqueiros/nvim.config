@@ -27,7 +27,7 @@ return {
       cmp.setup({
         ---@diagnostic disable-next-line: missing-fields
         performance = {
-          max_view_entries = 14,
+          max_view_entries = 30,
           -- trigger_debounce_time = 500,
           -- throttle = 550,
           fetching_timeout = 30,
@@ -47,9 +47,11 @@ return {
         },
         window = {
           completion = cmp.config.window.bordered({
-            winhighlight = "Normal:PMenu,FloatBorder:PMenu,CursorLine:PmenuSel,Search:None",
+            side_padding = 0
           }),
-          documentation = cmp.config.window.bordered(),
+          documentation = cmp.config.window.bordered({
+            side_padding = 0,
+          }),
         },
         formatting = {
           expandable_indicator = true,

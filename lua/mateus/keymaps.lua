@@ -30,8 +30,8 @@ keymap.set("n", "+", "<C-a>")
 keymap.set("n", "-", "<C-x>")
 
 -- Split window
-keymap.set("n", "ss", ":split<Return>", opts)
-keymap.set("n", "sv", ":vsplit<Return>", opts)
+keymap.set("n", "<leader>s", ":split<Return>", opts)
+keymap.set("n", "<leader>v", ":vsplit<Return>", opts)
 
 -- Move window
 -- keymap.set("n", "sh", "<C-w>h")

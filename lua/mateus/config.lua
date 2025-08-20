@@ -34,7 +34,8 @@ vim.opt.fillchars = {
 }
 
 vim.diagnostic.config({
-  virtual_lines = true
+  virtual_lines = false
+
 })
 
 vim.api.nvim_create_autocmd("CmdlineLeave", {
