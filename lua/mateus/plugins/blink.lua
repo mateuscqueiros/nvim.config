@@ -50,7 +50,6 @@ return {
       ['<C-space>'] = { 'show', 'hide' },
       ['<C-e>'] = { 'hide', 'fallback' },
       ['<CR>'] = { 'accept', 'fallback' },
-      ['<CR>'] = { 'accept', 'fallback' },
 
       -- Navigation in list
       ['<Up>'] = { 'select_prev', 'fallback' },

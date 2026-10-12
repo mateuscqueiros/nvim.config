@@ -1,6 +1,6 @@
 return {
   "nvim-telescope/telescope.nvim",
-  tag = "0.1.8",
+  branch = "master",
   event = { "BufReadPost", "BufNewFile" },
   dependencies = { "nvim-lua/plenary.nvim" },
   config = function()

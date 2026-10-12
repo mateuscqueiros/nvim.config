@@ -10,7 +10,11 @@ M.organize_imports = function()
       arguments = { vim.api.nvim_buf_get_name(0) },
       title = "Organize Imports",
     }
-    vim.lsp.buf.execute_command(params)
+    local client = vim.lsp.get_clients({ bufnr = 0, name = "ts_ls" })[1]
+    if not client then
+      return vim.notify("ts_ls not attached", vim.log.levels.WARN)
+    end
+    client:exec_cmd(params)
     vim.print("Fix imports")
   end
 end

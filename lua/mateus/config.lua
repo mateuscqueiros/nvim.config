@@ -18,6 +18,11 @@ vim.opt.backup = false
 vim.opt.undodir = os.getenv("HOME") .. "/.vim/undodir"
 vim.opt.undofile = true
 
+-- Providers legados custam centenas de ms ao abrir arquivos (ex.: python)
+for _, provider in ipairs({ "python3", "ruby", "perl", "node" }) do
+  vim.g["loaded_" .. provider .. "_provider"] = 0
+end
+
 vim.opt.termguicolors = true
 
 vim.opt.incsearch = true
@@ -34,8 +39,13 @@ vim.opt.fillchars = {
 }
 
 vim.diagnostic.config({
-  virtual_lines = false
-
+  virtual_lines = false,
+  underline = true,
+  virtual_text = {
+    spacing = 5,
+    severity = vim.diagnostic.severity.WARN,
+  },
+  update_in_insert = true,
 })
 
 vim.api.nvim_create_autocmd("CmdlineLeave", {

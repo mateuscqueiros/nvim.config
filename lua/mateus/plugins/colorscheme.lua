@@ -1,14 +1,4 @@
 return {
-  -- tell LazyVim to stop messing with colorschemes
-  { "catppuccin/nvim",       name = "catppuccin", enabled = false },
-  { "folke/tokyonight.nvim", enabled = false },
-  {
-    "LazyVim/LazyVim",
-    opts = {
-      colorscheme = "rose-pine",
-    },
-  },
-
   -- load/save our last used colorscheme automatically
   {
     "https://git.sr.ht/~swaits/colorsaver.nvim",
