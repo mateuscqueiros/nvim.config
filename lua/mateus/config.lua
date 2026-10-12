@@ -31,6 +31,7 @@ vim.opt.signcolumn = "yes"
 vim.opt.isfname:append("@-@")
 
 vim.opt.updatetime = 50
+vim.opt.ttimeoutlen = 5 -- padrão é 50 ms de atraso ao apertar Esc
 
 vim.g.terminal_emulator = "tmux"
 vim.opt.fillchars = {
