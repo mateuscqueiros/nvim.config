@@ -32,10 +32,6 @@ return {
           transparent = false,
         },
       },
-      { "AlexvZyl/nordic.nvim" },
-      { "EdenEast/nightfox.nvim" },
-      { "Shatur/neovim-ayu" },
-      { "rebelot/kanagawa.nvim" },
       {
         "ellisonleao/gruvbox.nvim",
         config = function()
@@ -44,7 +40,6 @@ return {
           })
         end
       },
-      { "Alexis12119/nightly.nvim" },
       {
         "rose-pine/neovim",
         config = function()
@@ -61,8 +56,6 @@ return {
           })
         end,
       },
-      { "catppuccin/nvim" },
-      { "Shatur/neovim-ayu" },
     },
   },
 }

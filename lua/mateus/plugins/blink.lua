@@ -23,7 +23,6 @@ return {
         auto_show_delay_ms = 250,
         update_delay_ms = 50,
         treesitter_highlighting = true,
-        window = { border = 'rounded' },
       },]] --
       documentation = {
         auto_show = false
@@ -35,7 +34,6 @@ return {
         },
       },
       menu = {
-        window = { border = 'rounded' },
         draw = {
           padding = { 0, 1 }, -- padding only on right side
           components = {
@@ -49,8 +47,9 @@ return {
 
     keymap = {
       -- Completion actions
-      ['<C-space>'] = { 'show', 'show', 'hide' },
+      ['<C-space>'] = { 'show', 'hide' },
       ['<C-e>'] = { 'hide', 'fallback' },
+      ['<CR>'] = { 'accept', 'fallback' },
       ['<CR>'] = { 'accept', 'fallback' },
 
       -- Navigation in list
@@ -63,17 +62,6 @@ return {
       ['<C-up>'] = { 'scroll_documentation_up', 'fallback' },
       ['<C-down>'] = { 'scroll_documentation_down', 'fallback' },
 
-      -- Super-Tab + snippet navigation
-      ['<Tab>'] = {
-        function(cmp) return cmp.select_next() end,
-        'snippet_forward',
-        'fallback',
-      },
-      ['<S-Tab>'] = {
-        function(cmp) return cmp.select_prev() end,
-        'snippet_backward',
-        'fallback',
-      },
 
       ['<C-j>'] = { 'select_next', 'fallback' },
       ['<C-k>'] = { 'select_prev', 'fallback' },

@@ -24,7 +24,8 @@ return {
     'tanvirtin/vgit.nvim',
     branch = 'v1.0.x',
     dependencies = { 'nvim-lua/plenary.nvim', 'nvim-tree/nvim-web-devicons' },
-    event = 'VimEnter',
+    event = 'VeryLazy',
+    cmd = 'VGit',
     config = function()
       require("vgit").setup({
         settings = {

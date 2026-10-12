@@ -13,7 +13,7 @@ return {
       defaults = {
         vimgrep_arguments = {
           "rg", "--color=never", "--no-heading", "--with-filename",
-          "--line-number", "--column", "--smart-case", "--max-filesize", "1M",
+          "--line-number", "--column", "--smart-case", "--max-filesize", "5M",
         },
         path_display = { "truncate" },
         file_ignore_patterns = {
@@ -21,6 +21,7 @@ return {
           "lazy%-lock.json",
           "package%-lock.json",
           ".git/.*",
+          ".angular/.*"
         },
         mappings = {
           i = {
@@ -63,6 +64,7 @@ return {
     end)
     vim.keymap.set("n", "<leader>fg", function()
       builtin.live_grep({
+        previewer = false,
         additional_args = function()
           return { "--fixed-strings" }
         end,
